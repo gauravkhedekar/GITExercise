@@ -243,4 +243,173 @@ Merge made by the 'ort' strategy.
  create mode 100644 Merge/testfromicecreams2.txt
 
 
+## Part 3: Conflicts!
+
+Your goal is to generate merge a conflict!
+
+Create a new branch.  Make some changes to the repo such that when you merge the new branch into the master branch, it results in a merge conflict. Merge that branch into master and see if you were right! Resolve the conflict!
+
+
+
+#ANSWER
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ vi testMergeWithConflict.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git switch icecreams
+Switched to branch 'icecreams'
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (icecreams)
+$ git switch master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ less
+Missing filename ("less --help" for help)
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ less testMergeWithConflict.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git add testMergeWithConflict.txt
+warning: in the working copy of 'Merge/testMergeWithConflict.txt', LF will be replaced by CRLF the next time Git touches it
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   testMergeWithConflict.txt
+
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git commit -m "added conflicting file"
+[master eb8a04b] added conflicting file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Merge/testMergeWithConflict.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git switch icecreams
+Switched to branch 'icecreams'
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (icecreams)
+$ git merge master
+Merge made by the 'ort' strategy.
+ Merge/README.md                   | 60 +++++++++++++++++++++++++++++++++++++++
+ Merge/testMergeWithConflict.txt   |  1 +
+ Merge/testMergeWithoutCOnflic.txt |  1 +
+ 3 files changed, 62 insertions(+)
+ create mode 100644 Merge/testMergeWithConflict.txt
+ create mode 100644 Merge/testMergeWithoutCOnflic.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (icecreams)
+$ ls -lrt
+total 18
+-rw-r--r-- 1 91986 197609   15 May  3 16:26 groceries_icecream.txt
+-rw-r--r-- 1 91986 197609    9 May  3 16:49 Nonveg.txt
+-rw-r--r-- 1 91986 197609   48 May  3 16:49 groceries.txt
+-rw-r--r-- 1 91986 197609    0 May  3 17:22 testfromicecreams1.txt
+-rw-r--r-- 1 91986 197609    0 May  3 17:22 testfromicecreams2.txt
+-rw-r--r-- 1 91986 197609   14 May  3 19:07 new_icecreams.txt
+-rw-r--r-- 1 91986 197609   30 May  3 19:07 testMergeWithoutCOnflic.txt
+-rw-r--r-- 1 91986 197609   92 May  3 19:07 testMergeWithConflict.txt
+-rw-r--r-- 1 91986 197609 8288 May  3 19:07 README.md
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (icecreams)
+$ vi testMergeWithConflict.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (icecreams)
+$ git add testMergeWithConflict.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (icecreams)
+$ git commit -m "added amount of icecreams in conflicting file"
+[icecreams 8068a14] added amount of icecreams in conflicting file
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (icecreams)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ vi testMergeWithConflict.txt
+
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git commit -m "added conflicting msg in testMergeWithConflict.txt"
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   testMergeWithConflict.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git add testMergeWithConflict.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git commit -m "added conflicting msg in testMergeWithConflict.txt"
+[master 853e2d2] added conflicting msg in testMergeWithConflict.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git merge icecreams
+Auto-merging Merge/testMergeWithConflict.txt
+CONFLICT (content): Merge conflict in Merge/testMergeWithConflict.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master|MERGING)
+$ vi testMergeWithConflict.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master|MERGING)
+$ git merge icecreams
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master|MERGING)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+        new file:   new_icecreams.txt
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   testMergeWithConflict.txt
+
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master|MERGING)
+$ git add testMergeWithConflict.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master|MERGING)
+$ git merge icecreams
+fatal: You have not concluded your merge (MERGE_HEAD exists).
+Please, commit your changes before you merge.
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master|MERGING)
+$ git commit -m "keeping data from icecreams branch"
+[master 59d1ab6] keeping data from icecreams branch
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git merge icecreams
+Already up to date.
 
