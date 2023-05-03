@@ -1,1 +1,1 @@
-THis is conflicting part I will add a <number of icecreams> in here from icecreams branch.
+THis is conflicting part I will add a (This is conflictingh change from master branch) in here from icecreams branch.
