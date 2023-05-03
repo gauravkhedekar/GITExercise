@@ -184,3 +184,63 @@ $ cat groceries_icecream.txt
 Amul
 Rajbhog
 
+
+
+
+## Part 2: Merge Commit (No Conflicts)
+
+Your goal is to generate a merge commit with NO MERGE CONFLICTS.
+
+Create a new branch. Make some changes to the repo such that when you merge the new branch into master, it results in a merge commit.  The merge should not result in any conflicts. Merge that branch into master and see if you were right!
+
+# ANSWER
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ vi testMergeWithoutCOnflic.txt
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git add testMergeWithoutCOnflic.txt
+warning: in the working copy of 'Merge/testMergeWithoutCOnflic.txt', LF will be replaced by CRLF the next time Git touches it
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git commit -m "added some lines in new testMergeWithoutCOnflic.txt"
+[master 7aca749] added some lines in new testMergeWithoutCOnflic.txt
+ 1 file changed, 1 insertion(+)
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git log
+commit 7aca7493faf2f196bd4c85edff7327035fe7ef65 (HEAD -> master)
+Author: gauravkhedekar <khedekarg9@gmail.com>
+Date:   Wed May 3 17:22:34 2023 +0530
+
+    added some lines in new testMergeWithoutCOnflic.txt
+
+commit 37b5fdaff4126fe431809bd61b963a9219522a41
+Author: gauravkhedekar <khedekarg9@gmail.com>
+Date:   Wed May 3 17:20:21 2023 +0530
+
+    added file for merge without conflict
+
+commit d859901c9e53f0e44d2e9434e03a5f1e41ce7a7a
+Author: gauravkhedekar <khedekarg9@gmail.com>
+Date:   Wed May 3 16:48:22 2023 +0530
+
+    added nonveg
+
+commit 6920e530524708ddb89e2607e4134a41ec73670b
+Author: gauravkhedekar <khedekarg9@gmail.com>
+Date:   Wed May 3 16:44:32 2023 +0530
+
+    added some more leaves
+
+91986@LAPTOP-A9NL7THK MINGW64 ~/Documents/GITExercise/Merge (master)
+$ git merge icecreams
+Merge made by the 'ort' strategy.
+ Merge/testfromicecreams1.txt | 0
+ Merge/testfromicecreams2.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Merge/testfromicecreams1.txt
+ create mode 100644 Merge/testfromicecreams2.txt
+
+
+
